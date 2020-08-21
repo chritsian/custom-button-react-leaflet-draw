@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/custom-button-react-leaflet-draw/static/css/main.a9990ac3.chunk.css",
+    "main.js": "/custom-button-react-leaflet-draw/static/js/main.f289dee1.chunk.js",
+    "main.js.map": "/custom-button-react-leaflet-draw/static/js/main.f289dee1.chunk.js.map",
+    "runtime-main.js": "/custom-button-react-leaflet-draw/static/js/runtime-main.5a4cd11b.js",
+    "runtime-main.js.map": "/custom-button-react-leaflet-draw/static/js/runtime-main.5a4cd11b.js.map",
+    "static/css/2.48af1cef.chunk.css": "/custom-button-react-leaflet-draw/static/css/2.48af1cef.chunk.css",
+    "static/js/2.74eb98c3.chunk.js": "/custom-button-react-leaflet-draw/static/js/2.74eb98c3.chunk.js",
+    "static/js/2.74eb98c3.chunk.js.map": "/custom-button-react-leaflet-draw/static/js/2.74eb98c3.chunk.js.map",
+    "index.html": "/custom-button-react-leaflet-draw/index.html",
+    "precache-manifest.19148c15365d54019a7067feadc3dfa2.js": "/custom-button-react-leaflet-draw/precache-manifest.19148c15365d54019a7067feadc3dfa2.js",
+    "service-worker.js": "/custom-button-react-leaflet-draw/service-worker.js",
+    "static/css/2.48af1cef.chunk.css.map": "/custom-button-react-leaflet-draw/static/css/2.48af1cef.chunk.css.map",
+    "static/css/main.a9990ac3.chunk.css.map": "/custom-button-react-leaflet-draw/static/css/main.a9990ac3.chunk.css.map",
+    "static/js/2.74eb98c3.chunk.js.LICENSE.txt": "/custom-button-react-leaflet-draw/static/js/2.74eb98c3.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/custom-button-react-leaflet-draw/static/media/logo.5d5d9eef.svg",
+    "static/media/leaflet.draw-src.css": "/custom-button-react-leaflet-draw/static/media/spritesheet.fd5728f2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5a4cd11b.js",
+    "static/css/2.48af1cef.chunk.css",
+    "static/js/2.74eb98c3.chunk.js",
+    "static/css/main.a9990ac3.chunk.css",
+    "static/js/main.f289dee1.chunk.js"
+  ]
+}
