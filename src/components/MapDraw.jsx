@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
 
-import { Map, FeatureGroup } from "react-leaflet";
+import { Map, FeatureGroup, TileLayer } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
-
-import ReactLeafletGoogleLayer from "react-leaflet-google-layer";
 
 import "leaflet-draw/dist/leaflet.draw-src.css"
 
@@ -42,7 +40,7 @@ export const MapDraw = (props) => {
         //Edit this method to perform other actions
 
         if (!drawing) {
-            editControl.current.leafletElement._toolbars.draw._modes.rectangle.handler.enable()
+            editControl.current.leafletElement._toolbars.draw._modes.polygon.handler.enable()
         } else {
             editControl.current.leafletElement._toolbars.draw._modes.polygon.handler.completeShape()
             editControl.current.leafletElement._toolbars.draw._modes.polygon.handler.disable()
@@ -59,6 +57,12 @@ export const MapDraw = (props) => {
             zoom={8}
             zoomControl={true}  
             className={classes.map} >
+
+                <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+                />
+
                 <FeatureGroup >
                     <EditControl
                     ref={editControl}
@@ -66,7 +70,7 @@ export const MapDraw = (props) => {
 
                     //here you can specify your shape options and which handler you want to enable
                     draw={{
-                        rectangle: true,
+                        rectangle: false,
                         circle: false,
                         polyline: false,
                         circlemarker: false,
@@ -80,9 +84,7 @@ export const MapDraw = (props) => {
                     }}
                     />
                 </FeatureGroup>
-                <ReactLeafletGoogleLayer
-                    useGoogMapsLoader={true}
-                    type={"roadmap"}/>
+                
                 
             </Map>
 
