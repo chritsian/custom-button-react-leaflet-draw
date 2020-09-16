@@ -1,13 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { Map, FeatureGroup } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
-import L from "leaflet";
 
 import ReactLeafletGoogleLayer from "react-leaflet-google-layer";
 
-// react leaflet draw styles
-//import "./assets/leaflet.draw.css";
 import "leaflet-draw/dist/leaflet.draw-src.css"
 
 // Material components
@@ -19,49 +16,57 @@ const useStyles = makeStyles(theme => ({
         width: '60%',
         zIndex: 0
     }),
-    bottomBtnWrapper: {
+    buttonWrapper: {
         zIndex: 1,
         position: "absolute",
         bottom: theme.spacing(2),
         marginLeft: "30%",
         marginBottom: "8%",
         transform: "translateX(-50%)",
-      },
+    },
 }));
 
 export const MapDraw = (props) => {
 
-    //refs
-    const map = useRef();
-    const editControl = useRef();
-    const [drawing, setDrawing] = useState(false);
     const classes = useStyles(props)
+    const editControl = useRef();
+
+    //use states to enable the button clicks at special times, also you can use states 
+    //to perform multiple actions with one button
+
+    const [drawing, setDrawing] = useState(false);
+    
 
     const handleClick = () => {
-        if (drawing) {
-            editControl.current.leafletElement._toolbars.draw._modes.polygon.handler.disable()
+        
+        //Edit this method to perform other actions
+
+        if (!drawing) {
+            editControl.current.leafletElement._toolbars.draw._modes.rectangle.handler.enable()
         } else {
-            editControl.current.leafletElement._toolbars.draw._modes.polygon.handler.enable()
+            editControl.current.leafletElement._toolbars.draw._modes.polygon.handler.completeShape()
+            editControl.current.leafletElement._toolbars.draw._modes.polygon.handler.disable()
         }
         setDrawing(!drawing)
     }
 
     return (
         <div>
-            <h1> Customize react-leaflet-draw Demo </h1>
+            <h1> Custom button react-leaflet-draw Demo </h1>
             
             <Map 
-            ref={map} 
             center={[51.515, -0.09]} 
-            zoom={8} 
+            zoom={8}
             zoomControl={true}  
             className={classes.map} >
                 <FeatureGroup >
                     <EditControl
                     ref={editControl}
                     position='topright'
+
+                    //here you can specify your shape options and which handler you want to enable
                     draw={{
-                        rectangle: false,
+                        rectangle: true,
                         circle: false,
                         polyline: false,
                         circlemarker: false,
@@ -81,12 +86,16 @@ export const MapDraw = (props) => {
                 
             </Map>
 
-            <div className={classes.bottomBtnWrapper}>
+            <div className={classes.buttonWrapper}>
                 <Button 
                     variant="contained"
                     onClick={handleClick}>
                     
-                    {drawing ? "Cancel" : "Start Draw"}
+                    {
+                        //display the correct text regarding the state
+                        drawing ? "Save draw" : "Start draw" 
+                    
+                    }
                 </Button>
             </div>
             
