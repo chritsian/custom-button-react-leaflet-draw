@@ -1,4 +1,4 @@
-This is a demo project for customizing react-leaflet-draw (see [here](https://github.com/alex3165/react-leaflet-draw)). The code is explained in this blog article: Titel [Approaches to customize react-leaflet-draw]()
+This is a demo project for customizing react-leaflet-draw (see [here](https://github.com/alex3165/react-leaflet-draw)). The code is explained in this blog article: [Approaches to customize react-leaflet-draw]()
 
 <b>How to run the example:</b>
 
