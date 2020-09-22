@@ -4,13 +4,14 @@ import { Map, FeatureGroup, TileLayer } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
 import L from "leaflet"
 
+import "./assets/leaflet.css"
 import "./assets/leaflet.draw.css"
 
 // Material components
 import { makeStyles, Button } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-    map: (props) => ({
+    map: ({
         height: `calc(90vh - 90px)`,
         width: '60%',
         zIndex: 0
@@ -39,10 +40,6 @@ export const MapDraw = (props) => {
     //to perform multiple actions with one button
 
     const [drawing, setDrawing] = useState(false);
-
-    //uncomment next line to change a default tooltip text
-    //L.drawLocal.draw.handlers.polygon.tooltip.start = "This is an modified tooltip text"
-
 
     const handleClick = () => {
         
@@ -92,21 +89,31 @@ export const MapDraw = (props) => {
     
     //example methods from section 4
 
+    //uncomment next line to change the default tooltip text
+    //L.drawLocal.draw.handlers.polygon.tooltip.start = "This is an modified tooltip text"
+
+    //to delete handlers to avoid draw on right clicks implement onHandleMapReady function
+    //there you call layer.off('**name of the handler**')
+
     const onShapeDrawn = (e) => {
         setDrawing(false)
+
         e.layer.on('click', () => {
             editRef.current.leafletElement._toolbars.edit._modes.edit.handler.enable()
         })
-        e.layer.bindTooltip(
-            "This is an example tooltip", 
+        e.layer.on('contextmenu', () => {
+            //do some contextmenu action here
+        })
+        e.layer.bindTooltip("Text", 
             {
-              className: 'leaflet-draw-tooltip leaflet-draw-tooltip-visible',
+              className: 'leaflet-draw-tooltip:before leaflet-draw-tooltip leaflet-draw-tooltip-visible',
               sticky: true,
               direction: 'right'
             }
         );
     }
 
+    
     return (
         <div>
             <div className={classes.headerWrapper}>

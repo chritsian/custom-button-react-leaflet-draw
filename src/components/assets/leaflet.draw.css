@@ -228,37 +228,38 @@
 }
 
 .leaflet-draw-tooltip {
-	background: #363636;
-	background: rgba(0, 0, 0, 0.5);
-	border: 1px solid transparent;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	color: #fff;
-	font: 12px/18px "Helvetica Neue", Arial, Helvetica, sans-serif;
-	margin-left: 20px;
-	margin-top: -21px;
-	padding: 4px 8px;
-	position: absolute;
-	visibility: hidden;
-	white-space: nowrap;
-	z-index: 6
+    background:#363636;
+    background:rgba(0,0,0,0.5);
+    border:1px solid transparent;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    color:#fff;
+    font:12px/18px "Helvetica Neue",Arial,Helvetica,sans-serif;
+    margin-left:20px;
+    margin-top:-21px;
+    padding:4px 8px;
+    position:absolute;
+    visibility:hidden;
+    white-space:nowrap;
+    z-index:6
 }
 
 .leaflet-draw-tooltip:before {
-	border-right: 6px solid black;
-	border-right-color: rgba(0, 0, 0, 0.5);
-	border-top: 6px solid transparent;
-	border-bottom: 6px solid transparent;
-	content: "";
-	position: absolute;
-	top: 7px;
-	left: -7px
+    border-right:6px solid black;
+    border-right-color:rgba(0,0,0,0.5);
+    border-top:6px solid transparent;
+    border-bottom:6px solid transparent;
+    content:"";
+    position:absolute;
+    top:7px;
+    left:-7px
 }
 
-.leaflet-draw-tooltip-visible:before{
+.leaflet-draw-tooltip-visible:before {
     left:-1px;
 }
-.leaflet-draw-tooltip-visible{
+
+.leaflet-draw-tooltip-visible {
     visibility: visible;
 }
 
